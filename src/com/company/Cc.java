@@ -53,7 +53,7 @@ public class Cc {
 
         for (int currentLetter = 0; currentLetter < s.length(); currentLetter++) {
 
-            char originalLetter = (char) (s.charAt(currentLetter)/*+currentLetter*/);
+            int originalLetter = (int) (s.charAt(currentLetter)/*+currentLetter*/);
             if (originalLetter == 197) {
                 originalLetter = 91;
             }
@@ -75,12 +75,10 @@ public class Cc {
             }
             boolean ifBigLetter = originalLetter >= 65 && originalLetter <= 93;
             boolean ifSmallLetter = originalLetter >= 97 && originalLetter <= 125;
-            char encryptedLetter = (char) (originalLetter + 3);
-            char finishedEncryptedLetter;
-            char backToA;
+            int encryptedLetter = (int) (originalLetter);
             if (ifBigLetter == true) {
-                finishedEncryptedLetter = (char) (encryptedLetter - 65);
-                backToA = (char) (finishedEncryptedLetter % 29 + 65);
+                finishedEncryptedLetter =  (encryptedLetter - 65);
+                backToA =  (finishedEncryptedLetter % 29 + 65);
                 if (backToA == 91) {
                     backToA = 197;
                 }
@@ -90,22 +88,22 @@ public class Cc {
                 if (backToA == 93) {
                     backToA = 214;
                 }
-                encryptedSentence.append(backToA);
+                encryptedSentence.append(encryptedLetter);
             } else if (ifSmallLetter == true) {
-                finishedEncryptedLetter = (char) (encryptedLetter - 97);
-                backToA = (char) (finishedEncryptedLetter % 29 + 97);
-                if (backToA == 123) {
-                    backToA = 229;
-                }
-                if (backToA == 124) {
-                    backToA = 228;
-                }
-                if (backToA == 125) {
-                    backToA = 246;
-                }
-                encryptedSentence.append(backToA);
-            } else {
-                encryptedSentence.append(originalLetter);
+                finishedEncryptedLetter = (encryptedLetter - 97);
+//                backToA = (char) (finishedEncryptedLetter % 29 + 97);
+//                if (backToA == 123) {
+//                    backToA = 229;
+//                }
+//                if (backToA == 124) {
+//                    backToA = 228;
+//                }
+//                if (backToA == 125) {
+//                    backToA = 246;
+//                }
+//                encryptedSentence.append(backToA);
+//            } else {
+//                encryptedSentence.append(originalLetter);
             }
         }
         return encryptedSentence.toString();
