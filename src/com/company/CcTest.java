@@ -10,7 +10,7 @@ public class CcTest {
     public void testR() throws Exception {
         String s = "A";
         String testResult = Cc.aTillZ(s);
-        assertEquals("1", testResult);
+        assertEquals("D", testResult);
     }
     @org.junit.Test
     public void testYxskaftbud() throws Exception {
