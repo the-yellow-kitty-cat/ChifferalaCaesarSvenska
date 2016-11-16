@@ -9,16 +9,21 @@ public class Cc {
 
         Scanner in = new Scanner(System.in);
 
+        System.out.println("Enter an integer");
+        int key = Integer.parseInt(in.nextLine());
+
         System.out.println("Enter a string");
         s = in.nextLine();
 
-        String encryptedToString = aTillZ(s);
+
+
+        String encryptedToString = aTillZ(s, key);
         System.out.print(encryptedToString);
 
 
     }
 
-    static String aTillZ(String s) {
+    static String aTillZ(String s, int key) {
         StringBuilder encryptedSentence = new StringBuilder();
 
         for (int currentLetter = 0; currentLetter < s.length(); currentLetter++) {
@@ -45,7 +50,7 @@ public class Cc {
             boolean ifBigLetter = originalLetter >= 65 && originalLetter <= 93;
             boolean ifSmallLetter = originalLetter >= 97 && originalLetter <= 125;
 
-            int encryptedLetter = (int) (originalLetter + 3);
+            int encryptedLetter = (int) (originalLetter + key);
             if (ifBigLetter) {
                 int finishedEncryptedLetter = (encryptedLetter - 65);
                 char backToA = (char) (finishedEncryptedLetter % 29 + 65);
